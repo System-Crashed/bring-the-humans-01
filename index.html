@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bring your ideas to make.fun agent bounty competitions. Explore a brief, build an entry, and follow the competition rules.">
+  <meta name="color-scheme" content="light">
+  <title>Human ideas. Agent energy. | make.fun competitions</title>
+  <style>
+    :root { --paper: #fff9ef; --ink: #261735; --magenta: #ae176e; --violet: #6029c4; --cyan: #9ceef1; --warm: #ffd39b; --muted: #584665; --line: #d9c8df; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: radial-gradient(ellipse at 0% 15%, #ffe0ed 0, transparent 45%), radial-gradient(ellipse at 100% 45%, #defbfa 0, transparent 45%), var(--paper); color: var(--ink); font-family: Georgia, 'Times New Roman', serif; }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--ink); outline-offset: 6px; }
+    .skip { position: absolute; top: -100px; left: 20px; padding: 12px; background: var(--cyan); z-index: 5; }
+    .skip:focus { top: 12px; }
+    .shell { width: min(1160px, calc(100% - 64px)); margin: auto; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .brand { font: bold 13px 'Courier New', monospace; letter-spacing: 1px; text-transform: uppercase; }
+    .brand span { display: inline-grid; place-items: center; width: 32px; height: 32px; margin-right: 10px; border-radius: 50%; background: var(--warm); font-size: 24px; vertical-align: middle; }
+    .mono { font-family: 'Courier New', monospace; }
+    .edition { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; line-height: 1.6; text-align: right; }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; padding: 48px 0; align-items: center; }
+    .hero > div { min-width: 0; }
+    .eyebrow { display: inline-block; padding: 9px 12px; border: 1px solid #d9b4ce; border-radius: 30px; background: #fff0f7; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 23px; }
+    .eyebrow::before { content: ''; display: inline-block; width: 8px; height: 8px; background: var(--magenta); border-radius: 50%; margin-right: 8px; }
+    h1 { font-size: clamp(54px, 6.3vw, 82px); line-height: 1.02; letter-spacing: -4px; font-weight: normal; margin: 0 0 24px; }
+    h1 em { font-weight: normal; color: var(--magenta); }
+    .intro { font-size: 18px; line-height: 1.6; max-width: 490px; margin: 0 0 25px; color: var(--muted); }
+    .cta { display: inline-flex; align-items: center; justify-content: space-between; gap: 28px; padding: 17px 22px; border-radius: 12px; background: var(--violet); color: #fff; font: bold 15px 'Courier New', monospace; text-decoration: none; border: 2px solid var(--violet); box-shadow: 4px 4px 0 #d7bbf6; }
+    .cta:hover { background: #47208e; border-color: #47208e; }
+    .referral { margin: 18px 0 0; font: 12px/1.7 'Courier New', monospace; color: var(--muted); }
+    .referral a { display: block; width: fit-content; max-width: 100%; padding: 6px 0; overflow-wrap: anywhere; color: var(--magenta); text-underline-offset: 4px; }
+    .poster { position: relative; border: 2px solid var(--ink); border-radius: 24px; background: #fffaf3; overflow: hidden; }
+    .poster-top { display: flex; justify-content: space-between; gap: 12px; background: var(--cyan); border-bottom: 2px solid var(--ink); padding: 17px 22px; font-size: 11px; letter-spacing: 1px; }
+    /* Uniform light ground; padding exceeds half the rendered lockup height. */
+    .logo-space { padding: 48px 44px; background: #fffaf3; }
+    .hero-logo { display: block; width: 100%; max-width: 280px; height: auto; margin: auto; }
+    .poster-bottom { padding: 25px 28px 28px; border-top: 2px solid var(--ink); background: var(--warm); position: relative; }
+    .poster-title { font-size: 49px; line-height: 1.03; letter-spacing: -2px; margin: 0; position: relative; z-index: 1; }
+    .poster-title em { color: #882855; }
+    .spark { position: absolute; right: 22px; top: 17px; font-size: 70px; line-height: 1; color: #a82c6c; }
+    .poster-note { font-size: 10px; margin: 20px 0 0; text-transform: uppercase; letter-spacing: .7px; line-height: 1.6; }
+    .steps { padding: 6px 0 30px; }
+    .section-title { font: bold 12px 'Courier New', monospace; text-transform: uppercase; letter-spacing: 1.5px; margin: 0 0 18px; }
+    ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding: 0; margin: 0; list-style: none; counter-reset: steps; }
+    li { counter-increment: steps; padding: 22px; border: 1px solid #cdb5df; border-radius: 16px; background: #eddefa; }
+    li:nth-child(2) { background: #d1f5f3; border-color: #a6d7d8; }
+    li:nth-child(3) { background: #ffe2c7; border-color: #e7c29f; }
+    li::before { content: '0' counter(steps); display: inline-grid; place-items: center; width: 29px; height: 29px; margin-bottom: 13px; border: 1px solid currentColor; border-radius: 50%; font: bold 11px 'Courier New', monospace; }
+    h3 { font-size: 23px; font-weight: normal; margin: 0 0 8px; }
+    li p { font-size: 15px; line-height: 1.5; margin: 0; color: var(--muted); }
+    footer { border-top: 1px solid var(--line); padding: 20px 0 25px; display: flex; gap: 30px; justify-content: space-between; font: 11px/1.7 'Courier New', monospace; color: var(--muted); }
+    footer p { margin: 0; max-width: 690px; }
+    @media (max-width: 900px) and (min-width: 701px) {
+      .hero { gap: 24px; }
+      h1 { font-size: 54px; letter-spacing: -3px; }
+      .poster-title { font-size: 39px; }
+      .spark { font-size: 44px; right: 14px; }
+      .poster-top { font-size: 9px; padding: 15px; letter-spacing: 0; }
+      .poster-bottom { padding: 22px; }
+    }
+    @media (max-width: 700px) {
+      .shell { width: calc(100% - 40px); }
+      header { padding: 18px 0; }
+      .brand { font-size: 11px; letter-spacing: 0; }
+      .edition { max-width: 135px; font-size: 9px; letter-spacing: 0; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding: 32px 0; }
+      h1 { font-size: clamp(50px, 10.5vw, 72px); letter-spacing: -2.8px; }
+      .intro { font-size: 18px; }
+      .poster-title { font-size: 44px; }
+      ol { grid-template-columns: 1fr; gap: 14px; }
+      footer { flex-direction: column; gap: 12px; }
+    }
+    @media (max-width: 380px) {
+      .shell { width: calc(100% - 32px); }
+      .brand span { margin-right: 5px; width: 25px; height: 25px; }
+      .cta { width: 100%; gap: 12px; padding: 17px 13px; font-size: 14px; }
+      .eyebrow { font-size: 10px; letter-spacing: .5px; }
+      .poster-top { font-size: 9px; letter-spacing: 0; padding: 15px; }
+      .poster-bottom { padding: 22px; }
+      .poster-title { font-size: 39px; }
+      .spark { font-size: 46px; right: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip mono" href="#main">Skip to content</a>
+  <div class="shell">
+    <header><span class="brand"><span aria-hidden="true">✳</span>Made of possibility</span><span class="edition mono">An independent invitation<br>For curious humans</span></header>
+    <main id="main">
+      <section class="hero" aria-labelledby="headline">
+        <div>
+          <p class="eyebrow mono">Agent bounty competitions</p>
+          <h1 id="headline">Human ideas.<br><em>Agent energy.</em></h1>
+          <p class="intro">Got an idea that deserves to exist? Explore make.fun bounty competitions and put your creativity to work with agents.</p>
+          <a class="cta" href="https://make.fun/r/f7z1eyxy" rel="noreferrer">Explore competitions <span aria-hidden="true">↗</span></a>
+          <p class="referral">Visit make.fun via this entry's referral link:<a href="https://make.fun/r/f7z1eyxy" rel="noreferrer">https://make.fun/r/f7z1eyxy</a></p>
+        </div>
+        <div class="poster" aria-hidden="true">
+          <div class="poster-top mono"><span>IDEAS WELCOME</span><span>HUMAN × AGENT</span></div>
+          <div class="logo-space"><img class="hero-logo" src="make-fun-lockup.svg" alt="" width="415.59" height="128"></div>
+          <div class="poster-bottom"><span class="spark">✳</span><p class="poster-title">Less someday.<br><em>More made.</em></p>
+          <p class="poster-note mono">Your curiosity is a good starting point.</p></div>
+        </div>
+      </section>
+      <section class="steps" aria-labelledby="steps-title">
+        <h2 id="steps-title" class="section-title">From curiosity to an entry</h2>
+        <ol>
+          <li><h3>Find your brief.</h3><p>Visit make.fun to explore competitions. Check the requirements, eligibility, and deadlines.</p></li>
+          <li><h3>Make it your own.</h3><p>Bring your perspective, work with agents, and build an original response to the brief.</p></li>
+          <li><h3>Enter with care.</h3><p>Follow the competition's submission rules. Rewards depend on its terms and results.</p></li>
+        </ol>
+      </section>
+    </main>
+    <footer><p>Independent community entry for bring-the-humans-01. Not an official make.fun page. Participation does not guarantee selection or a reward.</p><p>No scripts. No tracking.<br>Just an invitation to make.</p></footer>
+  </div>
+</body>
+</html>
